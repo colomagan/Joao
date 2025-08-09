@@ -8520,7 +8520,7 @@ h1, h2, h3, h4, h5,
           font-size: 14px;
           letter-spacing: 3px;
           text-transform: uppercase;
-          color: #ffbd39; }
+          color: #2c3f26; }
         .owl-carousel.home-slider .slider-item .slider-text .text {
           position: relative;
           z-index: 1; }
@@ -8531,7 +8531,7 @@ h1, h2, h3, h4, h5,
           font-weight: 800; }
           .owl-carousel.home-slider .slider-item .slider-text h1 span {
             font-weight: 800;
-            color: #ffbd39; }
+            color: #2c3f26; }
           @media (max-width: 991.98px) {
             .owl-carousel.home-slider .slider-item .slider-text h1 {
               color: #fff;
@@ -8712,20 +8712,20 @@ h1, h2, h3, h4, h5,
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #ffbd39;
-    border: 1px solid #ffbd39 !important;
+    background: #2c3f26;
+    border: 1px solid #2c3f26 !important;
     color: #000000 !important; }
     .btn.btn-primary:hover {
-      border: 1px solid #ffbd39 !important;
-      background: #ffbd39 !important;
-      color: #000000 !important; }
+      border: 1px solid #2c3f26 !important;
+      background: white !important;
+      color: black !important; }
     .btn.btn-primary.btn-outline-primary {
-      border: 2px solid #ffbd39 !important;
+      border: 2px solid #2c3f26 !important;
       background: transparent !important;
       color: #ffbd39 !important; }
       .btn.btn-primary.btn-outline-primary:hover {
         border: 2px solid transparent !important;
-        background: #ffbd39 !important;
+        background: #2c3f26 !important;
         color: #fff !important; }
   .btn.btn-secondary {
     background: #a0f669 !important;
@@ -8792,7 +8792,7 @@ h1, h2, h3, h4, h5,
     color: #fff; }
   .ftco-about .counter-wrap .text p span.number {
     font-weight: 600;
-    color: #ffbd39; }
+    color: #2c3f26; }
 
 .resume-wrap {
   width: 100%;
@@ -9412,7 +9412,7 @@ textarea.form-control {
 
 .contact-section .img {
   width: 100%;
-  background-position: top center; }
+  }
   @media (max-width: 991.98px) {
     .contact-section .img {
       height: 500px; } }
@@ -9717,7 +9717,7 @@ textarea.form-control {
 }
 
 #about-section p {
-  font-size: 10px;   /* Más pequeño que el normal */
+  font-size: 12px;   /* Más pequeño que el normal */
   line-height: 1.2;  /* Mejor lectura */
 }
 
@@ -9732,5 +9732,79 @@ textarea.form-control {
     margin-left: 0;
     margin-right: 0;
 }
+
+/* Centrar y alinear las 3 cajas de contacto */
+#contact-section .contact-info {
+    justify-content: center; /* Centra horizontalmente */
+    gap: 30px; /* Espacio entre cajas */
+}
+
+#contact-section .contact-info .col-md-6,
+#contact-section .contact-info .col-lg-3 {
+    flex: 0 0 auto; /* Evita que ocupen todo el ancho */
+    width: 250px; /* Mismo ancho para todas */
+    max-width: 100%;
+}
+
+/* === WhatsApp Floating Button === */
+.whatsapp-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  z-index: 9999; /* por encima del slider/overlays */
+  transition: transform .15s ease, box-shadow .15s ease, opacity .2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.28);
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+  display: block;
+}
+
+/* Opcional: pequeño “ping” de atención */
+.whatsapp-float::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(37,211,102,.35);
+  animation: waPulse 1.8s infinite ease-out;
+}
+
+@keyframes waPulse {
+  0% { transform: scale(0.9); opacity: .8; }
+  70% { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+
+/* En móviles, un poco más grande para tocar mejor */
+@media (max-width: 576px) {
+  .whatsapp-float {
+    width: 64px;
+    height: 64px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
 
 
