@@ -9716,3 +9716,21 @@ textarea.form-control {
   vertical-align: middle;
 }
 
+#about-section p {
+  font-size: 10px;   /* Más pequeño que el normal */
+  line-height: 1.2;  /* Mejor lectura */
+}
+
+/* Quitar márgenes laterales solo en el about */
+#about-section .container {
+    max-width: 90%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#about-section .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
