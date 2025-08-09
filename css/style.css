@@ -9682,3 +9682,37 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+    /* Ajustes para el dropdown del navbar */
+.navbar .dropdown-menu {
+  background-color: #222; /* igual que tu navbar oscuro */
+  border: none;
+}
+
+.navbar .dropdown-item {
+  color: #fff;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #444;
+  color: #ffc107; /* tono amarillo para hover */
+}
+/* Alinea el caret a la derecha del texto */
+.navbar .dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .dropdown-toggle .dropdown-caret::after {
+  content: "\25BE"; /* símbolo ▼ */
+  font-size: 0.6em;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+/* Ajuste visual para que no baje */
+.navbar .dropdown-toggle span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
