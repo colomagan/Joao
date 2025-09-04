@@ -1,0 +1,442 @@
+/* ========= Conversas d’Alma — Paleta y fondo global ========= */
+:root{
+    --ink: #3a3a3a;      /* negro/gris oscuro */
+    --gold: #caa24a;     /* dorado base */
+    --gold-2: #e6c879;   /* dorado brillo */
+    --gold-3: #9b7b2f;   /* dorado sombra */
+    --white: #ffffff;
+  }
+  
+  /* Fondo negro en toda la página (sin verdes) */
+  html, body { height: 100%; }
+  body{
+    background: var(--ink) !important;
+    color: var(--white);
+  }
+  
+  /* Evitar que otras secciones impongan fondo */
+  header, section, .ftco-section, .ca-block{ background: transparent; }
+  
+  /* ===== HERO: imagen a pantalla completa ocupando todo =====
+     Cambia la ruta según tu archivo real (png/jpg) */
+  .ca-hero{
+    min-height: 100dvh;
+    background:
+      url("../images/conversas/ca-logo.jpg")
+      center center / cover
+      no-repeat,
+      var(--ink);
+  }
+  
+  /* Tipografía y dorados */
+  a, .btn, .btn-primary { color: var(--gold); }
+  .btn-primary{ background: transparent; border:1px solid var(--gold); }
+  .btn-primary:hover{ background: var(--gold); color: var(--ink); }
+  
+  /* Utilidades */
+  .gold-ink{ color: var(--gold); }
+  .gold-gradient{
+    background: linear-gradient(135deg, var(--gold-3), var(--gold), var(--gold-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .gold-gradient2{
+    background: linear-gradient(135deg, var(--gold-3), var(--gold), var(--gold-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.2rem;
+  }
+  
+  .ca-block{ padding: 5rem 0; }
+  .ca-h2{
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 500; letter-spacing:.5px;
+    font-size: 2.2rem; margin-bottom: .75rem;
+  }
+  .ca-h3{
+    font-size:1.1rem; color:var(--gold-2);
+    text-transform:uppercase; letter-spacing:.16em; margin-bottom:.8rem;
+  }
+  .ca-copy{ color:#f0f0f0; opacity:.9; line-height:1.8; }
+  
+  /* Tarjetas/contornos en negro con borde dorado sutil */
+  .manifesto-card,
+  .ca-quote,
+  .ca-origens .origens-panel,
+  .ca-podcast .podcast-card,
+  .ca-pontes .bridge,
+  .fecho-quote{
+    background: transparent;
+    border: 1px solid rgba(202,162,74,.28);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  
+  /* Detalles */
+  .ca-quote{ position:relative; }
+  .ca-quote .quote-mark{
+    position:absolute; top:-22px; left:16px; font-size:3.6rem;
+    color:var(--gold-2); line-height:1;
+  }
+  .podcast-pills{
+    list-style:none; margin:0; padding:0; display:grid; gap:12px;
+  }
+  .podcast-pills li{
+    border:1px solid rgba(202,162,74,.28);
+    border-radius:999px; padding:.85rem 1.2rem; background: transparent;
+    font-weight:600;
+  }
+  .podcast-pills li span{ color:var(--gold-2); font-weight:700; }
+  .ca-pontes .bridge h4{
+    color:var(--gold); font-family:"Playfair Display", serif; margin-bottom:.35rem;
+  }
+  .fecho-quote p{ margin:0; font-size:1.15rem; line-height:1.9; color:#f1f1f1; }
+  
+  /* Responsive */
+  @media (max-width: 992px){
+    .ca-block{ padding: 4rem 0; }
+  }
+  @media (max-width: 576px){
+    .ca-h2{ font-size: 1.9rem; }
+  }
+
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+    font-size: 16px;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    opacity: 1 !important;
+}
+
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link span:before
+ {
+  
+    background: #e6c879;
+}
+
+
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link span:before {
+  background: #e6c879;
+}
+  
+
+
+.ftco-navbar-light.scrolled {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  margin-top: -130px;
+  background: #f5f2e0 !important;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 0 15px;
+}
+
+.ftco-navbar-light.scrolled .nav-item.active > a {
+  color: #e6c879 !important;
+}
+
+/* ===== HERO: imagen a pantalla completa ocupando todo =====
+     Cambia la ruta según tu archivo real (png/jpg) */
+     .ca-hero{
+      min-height: 100dvh;
+      background:
+        url("../images/conversas/ca-logo.jpg")
+        center center / cover
+        no-repeat,
+        var(--ink);
+    }
+    
+    /* Tipografía y dorados */
+    a, .btn, .btn-primary { color: var(--gold); }
+    .btn-primary{ background: transparent; border:1px solid var(--gold); }
+    .btn-primary:hover{ background: var(--gold); color: var(--ink); }
+    
+    /* Utilidades */
+    .gold-ink{ color: var(--gold); }
+    .gold-gradient{
+      background: linear-gradient(135deg, var(--gold-3), var(--gold), var(--gold-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .gold-gradient2{
+      background: linear-gradient(135deg, var(--gold-3), var(--gold), var(--gold-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 2.2rem;
+    }
+    
+    .ca-block{ padding: 5rem 0; }
+    .ca-h2{
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 500; letter-spacing:.5px;
+      font-size: 2.2rem; margin-bottom: .75rem;
+    }
+    .ca-h3{
+      font-size:1.1rem; color:var(--gold-2);
+      text-transform:uppercase; letter-spacing:.16em; margin-bottom:.8rem;
+    }
+    .ca-copy{ color:#f0f0f0; opacity:.9; line-height:1.8; }
+    
+    /* Tarjetas/contornos en negro con borde dorado sutil */
+    .manifesto-card,
+    .ca-quote,
+    .ca-origens .origens-panel,
+    .ca-podcast .podcast-card,
+    .ca-pontes .bridge,
+    .fecho-quote{
+      background: transparent;
+      border: 1px solid rgba(202,162,74,.28);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    
+    /* Detalles */
+    .ca-quote{ position:relative; }
+    .ca-quote .quote-mark{
+      position:absolute; top:-22px; left:16px; font-size:3.6rem;
+      color:var(--gold-2); line-height:1;
+    }
+    .podcast-pills{
+      list-style:none; margin:0; padding:0; display:grid; gap:12px;
+    }
+    .podcast-pills li{
+      border:1px solid rgba(202,162,74,.28);
+      border-radius:999px; padding:.85rem 1.2rem; background: transparent;
+      font-weight:600;
+    }
+    .podcast-pills li span{ color:var(--gold-2); font-weight:700; }
+    .ca-pontes .bridge h4{
+      color:var(--gold); font-family:"Playfair Display", serif; margin-bottom:.35rem;
+    }
+    .fecho-quote p{ margin:0; font-size:1.15rem; line-height:1.9; color:#f1f1f1; }
+  
+    /* ========= GALERIA STYLES ========= */
+    .ca-galeria {
+      padding: 6rem 0;
+    }
+  
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+  
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(202,162,74,.2);
+    }
+  
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 40px rgba(202,162,74,.15);
+    }
+  
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+  
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+  
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(58,58,58,0.9));
+      padding: 2rem 1.5rem 1.5rem;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+  
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+  
+    .gallery-overlay h4 {
+      color: var(--gold-2);
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin: 0;
+      font-weight: 500;
+    }
+  
+    /* Modal Styles */
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      backdrop-filter: blur(10px);
+    }
+  
+    .modal-content {
+      position: relative;
+      margin: auto;
+      padding: 2rem;
+      width: 90%;
+      max-width: 800px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .modal-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: var(--gold);
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+      transition: color 0.3s ease;
+    }
+  
+    .modal-close:hover {
+      color: var(--gold-2);
+    }
+  
+    #modalImage {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 2px solid var(--gold);
+    }
+  
+    .modal-info {
+      text-align: center;
+      margin-top: 2rem;
+    }
+  
+    .modal-info h3 {
+      color: var(--gold-2);
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px){
+      .ca-block{ padding: 4rem 0; }
+      .ca-galeria { padding: 4rem 0; }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+    }
+  
+    @media (max-width: 576px){
+      .ca-h2{ font-size: 1.9rem; }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      .gallery-item {
+        aspect-ratio: 3/4;
+      }
+      .modal-content {
+        padding: 1rem;
+      }
+      .modal-close {
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+      }
+    }
+  
+    .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+      font-size: 16px;
+      padding-top: .7rem;
+      padding-bottom: .7rem;
+      padding-left: 20px;
+      padding-right: 20px;
+      color: rgb(255, 255, 255);
+      font-weight: 400;
+      opacity: 1 !important;
+  }
+  
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link span:before
+   {
+    
+      background: #e6c879;
+  }
+  
+  
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link span:before {
+    background: #e6c879;
+  }
+    
+  
+  
+  .ftco-navbar-light.scrolled {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin-top: -130px;
+    background: #f5f2e0 !important;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 0 15px;
+  }
+  
+  .ftco-navbar-light.scrolled .nav-item.active > a {
+    color: #e6c879 !important;
+  }
+
+  .site-footer {
+    background: #f5f2e0;
+    color: black;
+    padding: 60px 0 30px;
+    position: relative;
+    z-index: 1;
+}
+.footer-title {
+  color: black;
+  font-size: 1rem;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.site-footer .footer-links a
+ {
+    color: black !important;
+    text-decoration: none !important;
+}
+.site-footer a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-bottom strong {
+  color: black;
+}
