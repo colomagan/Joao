@@ -1,0 +1,29 @@
+/* ===== Palestras - Galeria ===== */
+.palestras-gallery .photo-card{
+    background:#f5f2e0;
+    border:1px solid #eef0ec;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.04);
+    padding:18px;
+    margin:0;
+  }
+  
+  .palestras-gallery .photo-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio: 16 / 9;        /* por defecto horizontal */
+    background:#000;
+    border-radius:12px;
+    overflow:hidden;
+  }
+  
+  .palestras-gallery .photo-portrait .photo-frame{ aspect-ratio: 3 / 4; } /* vertical */
+  .palestras-gallery .photo-landscape .photo-frame{ aspect-ratio: 16 / 9; } /* horizontal */
+  
+  .palestras-gallery .photo-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  
