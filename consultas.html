@@ -40,7 +40,7 @@
         <ul class="navbar-nav nav ml-auto">
           <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>Quem Sou</span></a></li>
           <li class="nav-item active"><a href="consultas.html" class="nav-link"><span>Consultas</span></a></li>
-          <li class="nav-item"><a href="./index.html#agenda-joao" class="nav-link"><span>Eventos</span></a></li>
+          <li class="nav-item"><a href="./events.html" class="nav-link"><span>Eventos</span></a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="index.html#skills-section" id="navbarDropdown" role="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,8 +104,8 @@
           </p>
 
           <div class="mt-5" data-aos="fade-up" data-aos-delay="300">
-            <a href="#contact-section" class="btn">Agendar sessão</a>
-            <a href="#metodo" class="btn">Ver método</a>
+            <a href="https://www.instagram.com/joaoalexteixeira/" target="_blank" class="btn">Agendar sessão</a>
+            <a href="index.html#about-section" class="btn">Ver método</a>
           </div>
         </div>
       </div>
@@ -201,15 +201,13 @@
       <div class="col-lg-10">
         <figure class="video-card">
           <div class="video-frame">
-            <!-- Reemplaza src y poster por tus rutas reales -->
             <video id="video-magia"
                    class="magia-video"
                    preload="metadata"
                    controls
                    playsinline
                    muted
-                   poster="images/poster-magia.jpg"
-                   src="videos/espaco-magia.mp4">
+                   src="/video/spot.mp4">
               O teu navegador não suporta vídeo HTML5.
             </video>
 
@@ -329,6 +327,27 @@
       });
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const video = document.getElementById("video-livro-file");
+  
+      // Espera a que cargue el metadata del video
+      video.addEventListener("loadeddata", function() {
+        // Pausa el video (por si se autoinicia)
+        video.pause();
+  
+        // Mueve el tiempo al primer frame
+        video.currentTime = 0;
+  
+        // Fuerza el repaint del primer frame
+        video.addEventListener("seeked", function handleSeeked() {
+          // Quita el listener para no repetir
+          video.removeEventListener("seeked", handleSeeked);
+        });
+      });
+    });
+  </script>
+  
 </body>
 
 </html>

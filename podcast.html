@@ -37,7 +37,7 @@
         <ul class="navbar-nav nav ml-auto">
           <li class="nav-item"><a href="/index.html#about-section" class="nav-link"><span>Quem Sou</span></a></li>
           <li class="nav-item"><a href="./consultas.html" class="nav-link"><span>Consultas</span></a></li>
-          <li class="nav-item"><a href="./index.html#agenda-joao" class="nav-link"><span>Eventos</span></a></li>
+          <li class="nav-item"><a href="./events.html" class="nav-link"><span>Eventos</span></a></li>
           <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" href="#skills-section" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <span>Conversas d'Alma</span>
@@ -228,6 +228,12 @@
           <img src="./images/conversas/convidados/Manuel_Clemente.jpg" alt="Manuel Clemente" loading="lazy">
           <div class="gallery-overlay">
             <h4>Manuel Clemente</h4>
+          </div>
+        </div>
+        <div class="gallery-item" data-name="Mario Caetano">
+          <img src="./images/conversas/convidados/Mario Caetano.jpg" alt="Mario Caetano" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Mário Caetano</h4>
           </div>
         </div>
       </div>
@@ -442,5 +448,17 @@
   <!-- JS específico -->
   <script src="js/specials/conversas.js"></script>
   <script src="js/gallery.js"></script>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("ftco-navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+  
 </body>
 </html>

@@ -30,7 +30,7 @@
         <ul class="navbar-nav nav ml-auto">
           <li class="nav-item"><a href="/index.html#about-section" class="nav-link"><span>Quem Sou</span></a></li>
           <li class="nav-item"><a href="./consultas.html" class="nav-link"><span>Consultas</span></a></li>
-          <li class="nav-item"><a href="./index.html#agenda-joao" class="nav-link"><span>Eventos</span></a></li>
+          <li class="nav-item"><a href="./events.html" class="nav-link"><span>Eventos</span></a></li>
           <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" href="#skills-section" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <span>Conversas d'Alma</span>
@@ -216,6 +216,43 @@
     </div>
   </section>
 
+    <!-- VIDEO - PROMOÇÃO DO LIVRO -->
+  <section class="book-section video-section" id="video-livro">
+    <div class="container">
+      <div class="row justify-content-center pb-3">
+        <div class="col-md-10 text-center">
+          <h2 class="video-title gold-gradient" data-aos="fade-up">
+            Um convite à tua transformação
+          </h2>
+        </div>
+      </div>
+
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-10">
+          <figure class="video-card">
+            <div class="video-frame">
+              <video id="video-livro-file"
+                     class="livro-video"
+                     preload="metadata"
+                     controls
+                     playsinline
+                     muted
+                     src="/video/livro.mp4">
+                O teu navegador não suporta vídeo HTML5.
+              </video>
+
+              <!-- Botón retroceder 10s -->
+              <button class="rewind-btn" type="button" aria-label="Voltar 10 segundos">
+                ⟲ 10s
+              </button>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- CALL TO ACTION -->
   <section id="comprar" class="book-section cta-section">
     <div class="container">
@@ -223,7 +260,9 @@
         <div class="col-xl-8 text-center">
           <h2 class="cta-title">COMEÇA A TUA JORNADA DE TRANSFORMAÇÃO HOJE!</h2>
           <div class="cta-buttons">
-            <a href="#" class="btn btn-primary-libro btn-lg">Comprar Livro</a>
+           <a href="#" class="btn btn-primary-libro btn-lg" data-bs-toggle="modal" data-bs-target="#modalCompraLivro">
+  Comprar Livro
+</a>
           </div>
         </div>
       </div>
@@ -240,6 +279,56 @@
   <!-- Icono WhatsApp (SVG inline) -->
   <span class="icon-whatsapp" style="color: white; font-size: 30px;"></span>
 </a>
+
+<!-- 🧾 MODAL DE COMPRA DO LIVRO -->
+<div class="modal fade" id="modalCompraLivro" tabindex="-1" aria-labelledby="modalCompraLivroLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg border-0">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="modalCompraLivroLabel">Finalizar Compra</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body text-center p-4">
+        <h4 class="mb-3">Livro d’Alma</h4>
+        <p class="text-muted">Versão física com envio para todo Portugal.</p>
+
+        <div class="price-box my-3">
+          <h3 class="fw-bold text-primary mb-0">€24,90</h3>
+          <small class="text-muted">IVA incluído</small>
+        </div>
+
+        <p class="mt-3">Ao clicar em “Pagar com cartão”, serás direcionado à plataforma segura de pagamento Stripe.</p>
+
+        <!-- FORMULÁRIO STRIPE -->
+        <form id="payment-form" class="mt-4">
+          <div id="payment-element"><!-- Stripe renderiza aqui --></div>
+          <button id="submit" class="btn btn-primary btn-lg mt-4 w-100">
+            <span id="button-text">Pagar €24,90</span>
+          </button>
+          <div id="payment-message" class="mt-3 text-success" style="display:none;"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🟢 MODAL DE SUCESSO -->
+<div class="modal fade" id="modalCompraSucesso" tabindex="-1" aria-labelledby="modalCompraSucessoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center border-0 shadow-lg">
+      <div class="modal-body p-5">
+        <div class="mb-4">
+          <i class="bi bi-check-circle-fill text-success" style="font-size: 60px;"></i>
+        </div>
+        <h3 class="fw-bold mb-3">Pagamento realizado com sucesso!</h3>
+        <p class="text-muted mb-4">Receberás um email com todos os detalhes da tua compra.</p>
+        <button class="btn btn-success w-100" data-bs-dismiss="modal">Voltar ao início</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
   <!-- FOOTER -->
 <!-- ===================== FOOTER ===================== -->
@@ -299,13 +388,93 @@
   </div>
 </footer>
 
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const stripe = Stripe("pk_test_51SGQYxGmehPkgLNuMfqUOBDtc4wMtHkqV2wINIDAnUv6MRdqXuZCt3DW9wljmtotDYU9QlNWogpVr9TCiNyG5cbn00nDfvjwAO");
+
+  let elements;
+  let paymentElement;
+
+  const modal = document.getElementById('modalCompraLivro');
+  modal.addEventListener('shown.bs.modal', async () => {
+    try {
+      const res = await fetch("http://localhost/joao/server/create_payment_intent.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+
+      if (!data.clientSecret) throw new Error("Erro ao criar pagamento.");
+
+      // 🔹 Crea Stripe Elements con el clientSecret
+      elements = stripe.elements({ clientSecret: data.clientSecret });
+
+      // 🔹 Crea el formulario de pago visualmente
+      paymentElement = elements.create("payment");
+      paymentElement.mount("#payment-element");
+
+      console.log("✅ Payment Element montado com sucesso");
+    } catch (err) {
+      console.error("❌ Erro ao iniciar Stripe:", err);
+      document.getElementById("payment-message").textContent = "Erro ao carregar o pagamento.";
+      document.getElementById("payment-message").style.display = "block";
+    }
+  });
+
+  // 🔹 Evento de pagamento
+  const form = document.getElementById("payment-form");
+  const message = document.getElementById("payment-message");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!elements || !paymentElement) {
+      message.textContent = "O formulário de pagamento ainda não está pronto. Tenta novamente em alguns segundos.";
+      message.style.display = "block";
+      return;
+    }
+
+    const btn = document.getElementById("submit");
+    btn.disabled = true;
+    btn.innerHTML = "A processar...";
+
+   const { error, paymentIntent } = await stripe.confirmPayment({
+  elements,
+  confirmParams: {}, // 👈 requerido aunque esté vacío
+  redirect: "if_required"
+});
+
+
+    btn.disabled = false;
+    btn.innerHTML = "<span id='button-text'>Pagar €24,90</span>";
+
+    if (error) {
+      message.textContent = error.message;
+      message.style.display = "block";
+    } else if (paymentIntent && paymentIntent.status === "succeeded") {
+      // ✅ Fecha o modal de pagamento
+      const modalCompra = bootstrap.Modal.getInstance(document.getElementById('modalCompraLivro'));
+      if (modalCompra) modalCompra.hide();
+
+      // ✅ Mostra o modal de sucesso
+      const modalSuccess = new bootstrap.Modal(document.getElementById('modalCompraSucesso'));
+      modalSuccess.show();
+
+      console.log("✅ Pagamento confirmado com sucesso!");
+    }
+  });
+});
+</script>
+
+
+
+
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.stellar.min.js"></script>
@@ -317,6 +486,37 @@
   
   <script src="js/main.js"></script>
   
-    
+  <script>
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("ftco-navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const video = document.getElementById("video-livro-file");
+  
+      // Espera a que cargue el metadata del video
+      video.addEventListener("loadeddata", function() {
+        // Pausa el video (por si se autoinicia)
+        video.pause();
+  
+        // Mueve el tiempo al primer frame
+        video.currentTime = 0;
+  
+        // Fuerza el repaint del primer frame
+        video.addEventListener("seeked", function handleSeeked() {
+          // Quita el listener para no repetir
+          video.removeEventListener("seeked", handleSeeked);
+        });
+      });
+    });
+  </script>
+  
 </body>
 </html>

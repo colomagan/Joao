@@ -9695,7 +9695,7 @@ textarea.form-control {
 
 .navbar .dropdown-item:hover {
   background-color: #444;
-  color: #2c3f26; /* tono amarillo para hover */
+  color: #caa24a; /* tono amarillo para hover */
 }
 /* Alinea el caret a la derecha del texto */
 .navbar .dropdown-toggle {

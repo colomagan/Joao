@@ -1,0 +1,87 @@
+/* ===== Imersões d’Alma (extiende livro.css) ===== */
+.cta-title {
+    font-family: var(--font-secondary);
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: rgb(0, 0, 0);
+}
+
+/* Hero: mantiene el degradado dark del Livro + marca sutil */
+.immersions-hero{
+    /* overlay oscuro + imagen hero */
+    background-image:
+      linear-gradient(135deg, rgba(26,26,26,.65), rgba(45,45,45,.65)),
+      url('/images/conversas/imersoes/hero.png');
+    background-size: cover;
+    background-position: center;   /* ajusta si quieres otro foco */
+    background-repeat: no-repeat;
+    color: #fff;
+  }
+.immersions-hero .hero-title { margin-bottom: 12px; }
+.immersions-hero .hero-description { max-width: 560px; }
+.immersions-hero-mark{
+  width: 280px; height: 280px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,.15), transparent 70%);
+  filter: blur(6px);
+  margin-left: auto;
+}
+
+/* Lista con checks dorados */
+.immersions-list{
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.immersions-list li{
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.immersions-list li::before{
+  content: "\f26e"; /* bi-check2-circle */
+  font-family: "bootstrap-icons";
+  position: absolute; left: 0; top: 2px;
+  color: var(--primary-gold);
+  font-size: 1.1rem;
+}
+
+/* Galería: grid responsivo con tarjetas enmarcadas como tu estética */
+.immersions-gallery-section{ background: var(--light-bg); }
+.immersions-gallery{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.immersions-gallery .g-item{
+  display: block;
+  background: #f5f2e0;
+  border: 1px solid #eef0ec;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.immersions-gallery .g-item:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(0,0,0,.12);
+}
+.immersions-gallery .g-item img{
+  width: 100%; height: 100%;
+  display: block; object-fit: cover;
+}
+
+/* Todas tus fotos son verticales: usa aspect ratio retrato */
+.immersions-gallery .portrait { aspect-ratio: 3 / 4; }
+
+/* Responsive */
+@media (max-width: 1200px){
+  .immersions-gallery{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px){
+  .immersions-gallery{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px){
+  .immersions-gallery{ grid-template-columns: 1fr; }
+}
