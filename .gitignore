@@ -1,0 +1,27 @@
+# Composer
+/vendor/
+
+# Node (si usas npm)
+node_modules/
+
+# Archivos de entorno y configuraciones locales
+.env
+.vscode/
+.idea/
+*.log
+*.cache
+*.tmp
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación o backup
+*.zip
+*.rar
+*.tar
+*.gz
+*.bak
+
+# Archivos temporales
+*.lock
