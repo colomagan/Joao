@@ -640,5 +640,8 @@ html {
   transform: translateY(-1px);
   box-shadow:0 8px 28px rgba(0,0,0,.16);
 }
+.modal-title {
+  color: white;
+}
 
 
